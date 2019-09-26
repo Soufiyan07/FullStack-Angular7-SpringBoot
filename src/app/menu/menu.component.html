@@ -1,0 +1,44 @@
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" routerLink="">Students</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a *ngIf="this.hardcodedAuth.isLoggedin()" class="nav-link" routerLink=""><i class="fa fa-home"></i>Home <span
+              class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" *ngIf="this.hardcodedAuth.isLoggedin()" routerLink="/todos">
+            <i class="fa fa-group"></i>
+            Students</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" *ngIf="this.hardcodedAuth.isLoggedin()" routerLink="Student/lesson/list">
+            <i class="fa fa-tasks"></i>
+            lessens</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" *ngIf="this.hardcodedAuth.isLoggedin()" routerLink="Sharing/email">
+            <i class="fa fa-share"></i>
+            Sharing</a>
+        </li>
+
+      </ul>
+      <div class="nav-item">
+        <span class="badge badge-primary" *ngIf="localStorageFunctionUsername()"><i class="	fa fa-user-circle-o"></i>
+          {{ localStorageFunctionUsername() }} : {{ localStorageFunctionPassword() }}</span>
+       </div>
+      <div class="nav-item">
+        <a class="nav-link disabled" *ngIf="this.hardcodedAuth.isLoggedin()" routerLink="/logout">
+          <i class="fa fa-power-off"></i>
+          logOut</a>
+        <a class="nav-link" *ngIf="!(this.hardcodedAuth.isLoggedin())" routerLink="/login">
+          <i class="fa fa-id-card-o"></i> logIn</a>
+      </div>
+    </div>
+  </nav>
+

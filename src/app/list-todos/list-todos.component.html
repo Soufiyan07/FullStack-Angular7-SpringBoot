@@ -1,0 +1,54 @@
+<br>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="container">
+  <strong >Class <i class="fa fa-search"></i> </strong>
+       <select [(ngModel)]="selectedClass" (change)="selectedChange()">
+        <option value="0">All Students</option>
+        <option value="1">class 1</option>
+      <option value="2">class 2</option>
+      <option value="3">class 3</option>
+      <option value="4">class 4</option>
+    </select>
+    </div>
+  
+<div class="container">
+
+  <div class="alert alert-success" *ngIf="message!=null" >{{ message }}</div>
+
+  <table class="table ">
+    <thead>
+      <tr>
+          <th>id Student</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Niveaux Etudiant</th>
+          <th>Description Etudiant</th>
+          <th>class Etudiant</th>
+         
+         </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let todo of todos" >
+       <td>{{todo.id_etudiant}}</td>
+        <td><i class="fa fa-address-card"></i> {{ todo.first_etudiant}}</td>
+        <td>{{ todo.last_name }} </td>
+        <td>{{ todo.niveau_etudiant }} annee</td>
+        <td>{{ todo.description_etudiant }} </td>
+        <td>4IIR {{ todo.class_Etudiant }} </td>
+        <td><button class="btn btn-success" (click)=StudentNotes(todo.id_etudiant) ><i class="fa fa-graduation-cap"></i>
+          Notes
+        </button></td>
+        <td *ngIf="usertype=='prof'" ><button class="btn btn-light" (click)="UpdateStudent(todo.id_etudiant)" >
+          Update
+        </button></td>
+        <td *ngIf="usertype=='prof'"><button class="btn btn-warning" (click)="DeleteStudent(todo.id_etudiant,todo.first_etudiant)" >
+        <i class="fa fa-times-circle"></i>  Delete
+        </button></td>
+      </tr>
+      
+    </tbody><br>
+</table>
+<div *ngIf="usertype=='prof'" class="container">
+<button class="btn btn-primary"  (click)="goToAddStudent()" ><i class="fa fa-user-plus"></i>Add New Student</button>
+</div>
+</div>

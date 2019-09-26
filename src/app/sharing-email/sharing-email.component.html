@@ -1,0 +1,87 @@
+<br>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10">
+<div class="container">
+  
+  <span class="badge badge-pill badge-info" style="width: 20%; height: 25px" >Class <i class="fa fa-search"></i>  </span>
+    <br>   <select style="width: 20%; height: 50%" [(ngModel)]="selectedClass" (change)="selectedChange()">
+        <option value="0" selected>All Students</option>
+        <option value="1">class 1</option>
+      <option value="2">class 2</option>
+      <option value="3">class 3</option>
+      <option value="4">class 4</option>
+    </select>
+    </div>
+  <br>
+<div class="container">
+
+  <div class="alert alert-success" *ngIf="message!=null" >{{ message }}</div>
+
+  <table class="table" >
+    <thead>
+      <tr>
+          <th>id Student</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Niveaux Etudiant</th> 
+          <th>Description Etudiant</th>
+          <th>class Etudiant</th>
+          <th>Select</th>
+         
+         </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of studentsList" >
+       <td>{{student.id_etudiant}}</td>
+        <td><i class="fa fa-address-card"></i> {{ student.first_etudiant}}</td>
+        <td>{{ student.last_name }} </td>
+        <td>{{ student.niveau_etudiant }} annee</td>
+        <td>4IIR {{ student.class_Etudiant }} </td>
+        <td>{{ student.email_Etudiant }} </td>
+        <td><button (click)="remplireChamps(student)" class="badge badge-pill badge-info" >Select</button></td>
+      </tr>
+      
+    </tbody><br>
+</table>
+
+</div>
+</div>
+  <div class="container">
+<div class="col-sm">
+  <br>
+  
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <input type="text"  class="form-control" placeholder="First Name ..." [(ngModel)]="mail.firstname" >
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <input type="text" class="form-control" [(ngModel)]="mail.lastname" id="inputPassword" placeholder="lastname ....">
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <input type="email" class="form-control" [(ngModel)]="mail.addressmail" id="inputPassword" placeholder="Example@gmail.com">
+    </div>
+  </div> 
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <input type="text" class="form-control" [(ngModel)]="mail.subject"  placeholder="Subject ...">
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <textarea type="text" class="form-control" [(ngModel)]="mail.text"  placeholder="Text ..."></textarea>
+    </div>
+  </div> 
+  <div class="form-group row">
+    <div class="col-sm-10"> 
+      <button  style="width: 40%" (click)="SendingEmailTo()" class="btn btn-primary"  >Send</button>
+    </div> 
+  </div>
+ 
+</div></div></div>

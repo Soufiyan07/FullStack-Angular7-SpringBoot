@@ -1,0 +1,35 @@
+<!--<div class="alert">
+ 
+</div>
+<div class="container">
+  welcome {{ router.snapshot.params['name'] }}!
+</div>
+<div class="container">
+  you can manage your todos by going to the <a routerLink="/todos"> todos page</a>
+<button (click)="getwelcomeData()" > OK </button>
+<button (click)="getWelcomeValueParameter()" >Get Parameter</button>
+<Strong *ngIf="messageFromService!='Nothing'"> {{ messageFromService }} </Strong>
+<Strong *ngIf="errorFromService!='Nothing'"> {{ errorFromService }} </Strong>
+</div>    
+<div class=container>
+  <strong>{{ parameterValue }}</strong>
+</div>-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style type="text/css">
+  .bgimg {
+      background-image: url('../assets/images/backgroundim.jpg');
+  }
+</style>
+
+<div class="bgimg" alt="Responsive image">
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+
+<div class="col-md-12 mb-4 white-text text-center"> 
+    <hr class="hr-light my-4 wow fadeInDown" data-wow-delay="0.4s">
+    <h5 class="text-uppercase mb-4 white-text wow fadeInDown" style="color:white" data-wow-delay="0.4s"><strong>Student</strong>Space</h5>
+  
+      <button type="button" *ngIf="localStorageFunctionUsername()" class="btn btn-primary btn-md">Login</button> ||   
+        <a class="btn btn-light" data-wow-delay="0.4s">About</a>
+  </div>
